@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitVectorY-Labs Notes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>UnitVectorY-Labs Notes</h1>
+            <p class="subtitle">Notes drawn from practice and experience...</p>
+        </header>
+        
+        <main class="notes-grid">
+            {{range .Notes}}
+            <a href="/{{.Slug}}/" class="note-card {{.Theme}}">
+                <div class="card-title">{{.Title}}</div>
+                <div class="card-thesis">{{.Thesis}}</div>
+                {{if .Tags}}
+                <div class="card-tags">
+                    {{range $i, $tag := .Tags}}
+                    {{if lt $i 3}}
+                    <span class="tag">{{$tag}}</span>
+                    {{end}}
+                    {{end}}
+                </div>
+                {{end}}
+            </a>
+            {{end}}
+        </main>
+        
+        {{template "footer.html"}}
+    </div>
+</body>
+</html>

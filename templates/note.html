@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p class="subtitle">Notes drawn from practice and experience...</p>
+        </header>
+
+        <article class="note-detail {{.Theme}}">
+            
+            <p class="detail-thesis">{{.Thesis}}</p>
+            
+            {{if .Quote}}
+            <blockquote class="detail-quote">
+                {{.Quote}}
+            </blockquote>
+            {{end}}
+            
+            {{if .Diagram}}
+            <div class="detail-diagram">
+                <img src="{{.Diagram}}" alt="{{.Title}}">
+            </div>
+            {{end}}
+            
+            {{if .Bullets}}
+            <ul class="detail-bullets">
+                {{range .Bullets}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            {{end}}
+            
+            {{if .Example}}
+            <div class="detail-example">
+                <code>{{.Example}}</code>
+            </div>
+            {{end}}
+            
+            {{if .Links}}
+            <div class="detail-links">
+                {{range .Links}}
+                <a href="{{.URL}}" target="_blank" rel="noopener noreferrer">{{.Label}} →</a>
+                {{end}}
+            </div>
+            {{end}}
+        </article>
+        
+        {{template "footer.html"}}
+        
+        <nav class="breadcrumb-footer">
+            <a href="/">← Notes</a>
+        </nav>
+    </div>
+</body>
+</html>

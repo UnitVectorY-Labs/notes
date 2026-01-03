@@ -1,0 +1,14 @@
+slug: bottleneck
+title: Bottleneck First
+thesis: Don't waste your time. Improvements made anywhere other than the bottleneck rarely change the outcome.
+quote: "Any improvement made anywhere besides the bottleneck is an illusion."
+bullets:
+  - Identify the constraint with data, not debate.
+  - Increase throughput at the constraint before optimizing anything else.
+  - If the bottleneck moves, repeat the process.
+example: "Rule of thumb: if a change doesn't increase throughput at the constraint, treat it as cosmetic."
+links:
+  - label: "Theory of Constraints (overview)"
+    url: "https://en.wikipedia.org/wiki/Theory_of_constraints"
+tags: ["systems", "performance", "prioritization"]
+theme: green
