@@ -246,7 +246,7 @@ func generateSitemap(notes []Note) error {
 	// Get base URL from environment variable with fallback
 	baseURL := os.Getenv("BASEURL")
 	if baseURL == "" {
-		baseURL = "https://unitvectory-labs.github.io/notes"
+		return fmt.Errorf("BASEURL environment variable must be set")
 	}
 	lastMod := time.Now().Format("2006-01-02")
 

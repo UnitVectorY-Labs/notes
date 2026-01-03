@@ -1,0 +1,80 @@
+name: Deploy Go Static Site Generator
+
+on:
+  # Runs on pushes to the default branch
+  push:
+    branches: ["main"]
+  # Allows manual runs from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read  # Required to clone the repository
+  pages: write    # Allows publishing to GitHub Pages
+  id-token: write # Required for the `actions/deploy-pages@v4`
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    if: github.repository_owner == 'UnitVectorY-Labs'
+    runs-on: arc-runner-set
+    env:
+      WEBSITE: ${{ secrets.WEBSITE }}
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      # Step 2: Set up Go environment
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.25.5' # GOVERSION
+
+      # Step 3: Cache Go modules
+      - name: Cache Go modules
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: go mod download
+
+      # Step 5: Build and run the Go application
+      - name: Generate static files
+        run: |
+          mkdir -p output
+          go run main.go
+        env:
+          BASEURL: "notes.unitvectorylabs.com"
+
+      # Step 6: Upload artifact for deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./output  # Match the directory where the static files are generated
+
+  # Deployment job
+  deploy:
+    if: github.repository_owner == 'UnitVectorY-Labs'
+    environment:
+      name: github-pages
+      url: notes.unitvectorylabs.com
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # Step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
