@@ -21,7 +21,7 @@ var templatesFS embed.FS
 //go:embed static/*
 var staticFS embed.FS
 
-//go:embed notes/*
+//go:embed content/*
 var notesFS embed.FS
 
 // Link represents a link with label and URL
@@ -136,7 +136,7 @@ func run() error {
 func readNotes() ([]Note, error) {
 	var notes []Note
 
-	entries, err := notesFS.ReadDir("notes")
+	entries, err := notesFS.ReadDir("content")
 	if err != nil {
 		return nil, err
 	}
@@ -146,7 +146,7 @@ func readNotes() ([]Note, error) {
 			continue
 		}
 
-		path := filepath.Join("notes", entry.Name())
+		path := filepath.Join("content", entry.Name())
 		data, err := notesFS.ReadFile(path)
 		if err != nil {
 			return nil, fmt.Errorf("reading %s: %w", path, err)
