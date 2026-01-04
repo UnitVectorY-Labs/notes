@@ -1,0 +1,16 @@
+slug: data-driven-testing
+title: Prefer Data Driven Tests
+thesis: Tests should be defined by data, not logic. Structure test cases around inputs, system state, and expected outcomes using data files (ex: JSON, YAML, XML) so the test code itself stays fixed and simple and new tests can be added by simply adding new data entries.
+bullets:
+  - A data driven approach separates inputs, test state, and expected results into structured data files rather than embedding them in code. This makes each case clear, reviewable, and explicit.
+  - Keeping test code mostly fixed while driving variation from data reduces duplication and maintenance. When behavior changes the output, you update your test data sets, not logic within tests.
+  - Adding a new scenario should mean simply adding a new data row or entry, not another test function in code. If you find a new big or edge case, simply add a new data entry to cover it without writing any new code.
+  - Utilize parameterized tests in your language of choice to retain separate test cases for each data entry while reusing the same test logic.
+example: "A test runner loads a JSON or YAML file listing request payloads, initial state conditions, and expected results, then loops over each entry with one implementation of the test logic to validate behavior across scenarios."
+links:
+  - label: "Data Driven Testing in Java"
+    url: "https://medium.com/@jaredhatfield/data-driven-testing-in-java-f44f583b49e3"
+  - label: "Data Driven Testing overview (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Data-driven_testing"
+tags: ["testing", "quality", "automation"]
+theme: amber
