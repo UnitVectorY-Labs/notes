@@ -1,11 +1,11 @@
 slug: bottleneck
-title: Bottleneck First
-thesis: Don't waste your time. Improvements made anywhere other than the bottleneck rarely change the outcome.
+title: Focus on the Bottleneck
+thesis: Don't waste your time optimizing non-constraints. Improvements made anywhere other than the bottleneck are a waste of effort.
 quote: "Any improvement made anywhere besides the bottleneck is an illusion."
 bullets:
   - Identify the constraint with data, not debate.
-  - Increase throughput at the constraint before optimizing anything else.
-  - If the bottleneck moves, repeat the process.
+  - Increase throughput at the constraint before optimizing anything else. Verify with data.
+  - If the bottleneck moves, and it will, repeat the process as necessary.
 example: "Rule of thumb: if a change doesn't increase throughput at the constraint, treat it as cosmetic."
 links:
   - label: "Theory of Constraints (overview)"

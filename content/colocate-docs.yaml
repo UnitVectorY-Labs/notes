@@ -1,11 +1,11 @@
 slug: colocate-docs
 title: Colocate Docs With Code
-thesis: Colocate your documentation with your source code in the git repository.
+thesis: Store your application documentation with your source code in the same git repository.
 bullets:
   - Documentation that lives with code is versioned, reviewed, and shipped together.
-  - Separating docs from source guarantees drift as it changes.
-  - Changes that affect users or operators should update docs in the same pull request.
-  - AI coding agents can read and update documentation automatically when it lives alongside the code they modify.
+  - Separating docs from source guarantees drift as it changes over time.
+  - Changes that affect features and functionality should update docs and code in the same pull request.
+  - AI coding agents can read and update documentation automatically when it lives alongside the code, making them more effective.  Additionally they modify documentation as the code evolves.
 example: "A service repository that includes a README and /docs directory, updated in the same commit as an API change, ensures documentation always matches the deployed version."
 tags: ["documentation", "maintainability", "engineering-practice", "ai"]
 theme: slate
