@@ -1,6 +1,6 @@
 slug: data-driven-testing
 title: Prefer Data Driven Tests
-thesis: Tests should be defined by data, not logic. Structure test cases around inputs, system state, and expected outcomes using data files (ex: JSON, YAML, XML) so the test code itself stays fixed and simple and new tests can be added by simply adding new data entries.
+thesis: "Tests should be defined by data, not logic. Structure test cases around inputs, system state, and expected outcomes using data files (ex: JSON, YAML, XML) so the test code itself stays fixed and simple and new tests can be added by simply adding new data entries."
 bullets:
   - A data driven approach separates inputs, test state, and expected results into structured data files rather than embedding them in code. This makes each case clear, reviewable, and explicit.
   - Keeping test code mostly fixed while driving variation from data reduces duplication and maintenance. When behavior changes the output, you update your test data sets, not logic within tests.
