@@ -87,7 +87,6 @@ body {
 }
 
 .note-card:hover {
-    transform: translateY(-4px) !important;
     box-shadow: 0 6px 16px var(--color-shadow);
 }
 

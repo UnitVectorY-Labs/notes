@@ -57,14 +57,32 @@
                 shuffled.forEach(card => grid.appendChild(card));
                 
                 // Apply subtle messy effect to each card
-                cards.forEach(card => {
+                shuffled.forEach(card => {
                     // Random rotation between -2 and 2 degrees
                     const rotation = (Math.random() * 4) - 2;
                     
                     // Random vertical offset between -4px and 4px
                     const offsetY = (Math.random() * 8) - 4;
                     
+                    // Store rotation for use in hover state
+                    card.dataset.rotation = rotation;
+                    card.dataset.offsetY = offsetY;
+                    
                     card.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
+                });
+                
+                // Handle hover to preserve rotation while lifting card
+                shuffled.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        const rotation = this.dataset.rotation;
+                        this.style.transform = `rotate(${rotation}deg) translateY(-4px)`;
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        const rotation = this.dataset.rotation;
+                        const offsetY = this.dataset.offsetY;
+                        this.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
+                    });
                 });
             }
         })();
