@@ -86,10 +86,6 @@ body {
     margin: 8px;
 }
 
-.note-card:hover {
-    box-shadow: 0 6px 16px var(--color-shadow);
-}
-
 .card-title {
     font-size: 0.875rem;
     font-weight: 600;

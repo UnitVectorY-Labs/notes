@@ -50,14 +50,13 @@
                 // Get all note cards
                 const cards = Array.from(grid.children);
                 
-                // Shuffle the cards
-                const shuffled = shuffleArray(cards);
+                // Shuffle a copy of the cards array
+                const shuffled = shuffleArray([...cards]);
                 
-                // Re-append in shuffled order
-                shuffled.forEach(card => grid.appendChild(card));
-                
-                // Apply subtle messy effect to each card
+                // Re-append in shuffled order and apply messy effect
                 shuffled.forEach(card => {
+                    grid.appendChild(card);
+                    
                     // Random rotation between -2 and 2 degrees
                     const rotation = (Math.random() * 4) - 2;
                     
@@ -69,19 +68,19 @@
                     card.dataset.offsetY = offsetY;
                     
                     card.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
-                });
-                
-                // Handle hover to preserve rotation while lifting card
-                shuffled.forEach(card => {
+                    
+                    // Handle hover to preserve rotation while lifting card
                     card.addEventListener('mouseenter', function() {
                         const rotation = this.dataset.rotation;
                         this.style.transform = `rotate(${rotation}deg) translateY(-4px)`;
+                        this.style.boxShadow = '0 6px 16px var(--color-shadow)';
                     });
                     
                     card.addEventListener('mouseleave', function() {
                         const rotation = this.dataset.rotation;
                         const offsetY = this.dataset.offsetY;
                         this.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
+                        this.style.boxShadow = '0 1px 3px var(--color-shadow)';
                     });
                 });
             }
