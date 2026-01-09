@@ -82,10 +82,23 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* Margin provides clearance for ±2° rotation and ±4px vertical offset to prevent clipping */
+    /* Margin provides clearance for ±2° rotation and ±4px vertical offset to prevent clipping on larger screens */
     margin: 8px;
 }
 
+@media (max-width: 768px) {
+    .note-card {
+        /* Reduce outer margin on medium screens to tighten spacing and avoid overflow with rotation */
+        margin: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .note-card {
+        /* Remove extra margin on small screens; rely on grid gap and body padding for spacing */
+        margin: 0;
+    }
+}
 .card-title {
     font-size: 0.875rem;
     font-weight: 600;
