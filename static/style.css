@@ -82,7 +82,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* Allow for subtle rotation without clipping */
+    /* Margin provides clearance for ±2° rotation and ±4px vertical offset to prevent clipping */
     margin: 8px;
 }
 
