@@ -68,20 +68,28 @@
                     card.dataset.offsetY = offsetY;
                     
                     card.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
-                    
-                    // Handle hover to preserve rotation while lifting card
-                    card.addEventListener('mouseenter', function() {
-                        const rotation = this.dataset.rotation;
-                        this.style.transform = `rotate(${rotation}deg) translateY(-4px)`;
-                        this.style.boxShadow = '0 6px 16px var(--color-shadow)';
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        const rotation = this.dataset.rotation;
-                        const offsetY = this.dataset.offsetY;
-                        this.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
-                        this.style.boxShadow = '0 1px 3px var(--color-shadow)';
-                    });
+                });
+
+                // Use event delegation for hover effects to avoid per-card listeners
+                grid.addEventListener('mouseover', function(event) {
+                    const card = event.target.closest('.note-card');
+                    if (!card || !grid.contains(card)) {
+                        return;
+                    }
+                    const rotation = card.dataset.rotation;
+                    card.style.transform = `rotate(${rotation}deg) translateY(-4px)`;
+                    card.style.boxShadow = '0 6px 16px var(--color-shadow)';
+                });
+
+                grid.addEventListener('mouseout', function(event) {
+                    const card = event.target.closest('.note-card');
+                    if (!card || !grid.contains(card)) {
+                        return;
+                    }
+                    const rotation = card.dataset.rotation;
+                    const offsetY = card.dataset.offsetY;
+                    card.style.transform = `rotate(${rotation}deg) translateY(${offsetY}px)`;
+                    card.style.boxShadow = '0 1px 3px var(--color-shadow)';
                 });
             }
         })();
