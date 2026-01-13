@@ -1,0 +1,12 @@
+slug: poc-vs-mvp
+title: POC vs MVP
+thesis: A POC cuts corners but not scope. An MVP cuts scope but not corners.
+bullets:
+  - A proof of concept exists to answer a single question: can this work at all.
+  - POCs preserve scope just enough to validate feasibility, while allowing poor structure, hacks, and shortcuts.
+  - A minimum viable product exists to deliver real value to real users.
+  - MVPs aggressively reduce scope, but the code must be correct, maintainable, and safe to evolve.
+  - Technical debt is acceptable in a POC and dangerous in an MVP.
+example: "A prototype with hardcoded data and no tests may be acceptable as a POC, but an MVP would ship only one workflow end to end with proper error handling, tests, and deployability."
+tags: ["product", "engineering", "execution"]
+theme: blue
