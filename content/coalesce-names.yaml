@@ -1,0 +1,10 @@
+slug: coalesce-names
+title: Coalesce Names Alphabetically
+thesis: When naming things with multiple segments, order segments so names cluster naturally in sorted lists. Put the most general segment first and the most specific last.
+bullets:
+  - Start with the broadest category so related items group together in alphabetically sorted lists.
+  - Prefer stable taxonomy segments over volatile details so names keep clustering as the system evolves.
+  - Use consistent separators within a use case but the specific separator (dot, dash, underscore) is less important than the overall segment order and consistency.
+example: "Make the left side the shelf and the right side the book: topic.subtopic.thing, not thing.topic.subtopic."
+tags: ["naming", "organization", "maintainability", "observability"]
+theme: slate
