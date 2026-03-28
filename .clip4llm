@@ -1,1 +1,1 @@
-exclude=output
+exclude=LICENSE,output

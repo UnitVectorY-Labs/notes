@@ -1,0 +1,18 @@
+name: notes
+default_branch: main
+config:
+  description: "Curated set of notes from @UnitVectorY-Labs."
+  license: MIT
+  language: go
+  release: release-go
+  justfile: true
+  codecov: false
+  gitignore:
+    - output
+  repver:
+    goversion:
+      paths:
+        - .github/workflows/go-pages-deploy.yml
+  clip4llm:
+    exclude:
+      - output
