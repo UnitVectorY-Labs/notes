@@ -17,7 +17,13 @@
             <h1 class="detail-title">{{.Title}}</h1>
             
             <p class="detail-thesis">{{.Thesis}}</p>
-            
+
+            {{if .HasImage}}
+            <div class="detail-image">
+                <img src="/images/{{.Slug}}.png" alt="{{.Title}}">
+            </div>
+            {{end}}
+
             {{if .Quote}}
             <blockquote class="detail-quote">
                 {{.Quote}}

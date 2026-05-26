@@ -17,6 +17,9 @@
             {{range .Notes}}
             <a href="/{{.Slug}}/" class="note-card {{.Theme}}">
                 <div class="card-title">{{.Title}}</div>
+                {{if .HasImage}}
+                <img src="/images/{{.Slug}}.png" alt="{{.Title}}" class="card-image">
+                {{end}}
                 <div class="card-thesis">{{.Thesis}}</div>
                 {{if .Tags}}
                 <div class="card-tags">

@@ -32,16 +32,17 @@ type Link struct {
 
 // Note represents a single note from YAML
 type Note struct {
-	Slug    string   `yaml:"slug"`
-	Title   string   `yaml:"title"`
-	Thesis  string   `yaml:"thesis"`
-	Quote   string   `yaml:"quote"`
-	Bullets []string `yaml:"bullets"`
-	Example string   `yaml:"example"`
-	Diagram string   `yaml:"diagram"`
-	Links   []Link   `yaml:"links"`
-	Tags    []string `yaml:"tags"`
-	Theme   string   `yaml:"theme"`
+	Slug     string   `yaml:"slug"`
+	Title    string   `yaml:"title"`
+	Thesis   string   `yaml:"thesis"`
+	Quote    string   `yaml:"quote"`
+	Bullets  []string `yaml:"bullets"`
+	Example  string   `yaml:"example"`
+	Diagram  string   `yaml:"diagram"`
+	Links    []Link   `yaml:"links"`
+	Tags     []string `yaml:"tags"`
+	Theme    string   `yaml:"theme"`
+	HasImage bool
 }
 
 // IndexData holds data for the index template
@@ -119,6 +120,12 @@ func run() error {
 		return fmt.Errorf("copying static files: %w", err)
 	}
 
+	// Copy content images
+	imageCount, err := copyContentImages()
+	if err != nil {
+		return fmt.Errorf("copying content images: %w", err)
+	}
+
 	// Generate sitemap
 	if err := generateSitemap(notes); err != nil {
 		return fmt.Errorf("generating sitemap: %w", err)
@@ -127,6 +134,9 @@ func run() error {
 	fmt.Printf("✓ Generated %d note pages\n", len(notes))
 	fmt.Println("✓ Generated index page")
 	fmt.Println("✓ Copied static files")
+	if imageCount > 0 {
+		fmt.Printf("✓ Copied %d content images\n", imageCount)
+	}
 	fmt.Println("✓ Generated sitemap.xml")
 	fmt.Println("\nBuild complete! Output is in the 'output' directory.")
 
@@ -160,6 +170,12 @@ func readNotes() ([]Note, error) {
 		// Set default theme if not specified
 		if note.Theme == "" {
 			note.Theme = "default"
+		}
+
+		// Check if a companion image exists
+		if f, err := notesFS.Open("content/" + note.Slug + ".png"); err == nil {
+			f.Close()
+			note.HasImage = true
 		}
 
 		notes = append(notes, note)
@@ -234,6 +250,47 @@ func copyStaticFiles() error {
 	}
 
 	return nil
+}
+
+func copyContentImages() (int, error) {
+	entries, err := notesFS.ReadDir("content")
+	if err != nil {
+		return 0, err
+	}
+
+	count := 0
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".png") {
+			continue
+		}
+
+		if err := os.MkdirAll("output/images", 0755); err != nil {
+			return count, err
+		}
+
+		src, err := notesFS.Open("content/" + entry.Name())
+		if err != nil {
+			return count, err
+		}
+
+		dst, err := os.Create(filepath.Join("output/images", entry.Name()))
+		if err != nil {
+			src.Close()
+			return count, err
+		}
+
+		if _, err := io.Copy(dst, src); err != nil {
+			src.Close()
+			dst.Close()
+			return count, err
+		}
+
+		src.Close()
+		dst.Close()
+		count++
+	}
+
+	return count, nil
 }
 
 func generateSitemap(notes []Note) error {
