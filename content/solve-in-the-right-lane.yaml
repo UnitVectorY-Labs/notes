@@ -1,0 +1,16 @@
+slug: solve-in-the-right-lane
+title: Solve in the Right Lane
+thesis: People, process, and technology are parts of the same operating model, but they are not interchangeable fixes. Diagnose the lane where the problem lives before choosing the solution.
+quote: "There is no magic bullet, and the wrong kind of fix usually misses."
+bullets:
+  - Technology can support a process, automate a process, or make a process observable, but it cannot make an unclear process correct.
+  - Process can clarify expectations, reduce variation, and make work repeatable, but it cannot turn toxic behavior into healthy collaboration.
+  - People can compensate for weak process and poor tools for a while, but relying on heroics is not an operating model.
+  - When a solution fails, ask whether the remedy matched the root problem or merely attacked the most visible symptom.
+  - Improve the lane that is actually constraining the outcome, then make the other lanes support it.
+example: "Buying workflow software will not fix a team that has never agreed who owns approvals, what good looks like, or when work is complete. The tool may expose the confusion, but it will not resolve it."
+links:
+  - label: "Operating model"
+    url: "https://en.wikipedia.org/wiki/Operating_model"
+tags: ["systems", "process", "technology", "execution"]
+theme: red
