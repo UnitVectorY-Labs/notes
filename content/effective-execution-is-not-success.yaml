@@ -1,0 +1,12 @@
+slug: effective-execution-is-not-success
+title: Effective Execution Is Not Success
+thesis: Effective execution only tells you that you are succeeding at what you are trying to do. It does not prove that what you are trying to do is worth doing.
+bullets:
+  - Real Success is doing the right thing well.
+  - Effective Waste is doing the wrong thing well. This is dangerous because progress, quality, and momentum can hide the fact that the direction is wrong.
+  - Failed Delivery is doing the right thing poorly. The strategy may be sound, but poor execution prevents the value from materializing.
+  - Total Failure is doing the wrong thing poorly. Nothing is working, but the failure may be easier to recognize because both the direction and execution are broken.
+  - "Analyze both dimensions: whether you are executing effectively and whether the thing you are executing is correct."
+example: "A team can ship a polished feature on time, with clean code and strong adoption metrics, and still fail if the feature advances the wrong strategy or solves a problem that should not matter."
+tags: ["strategy", "execution", "product", "systems"]
+theme: amber
