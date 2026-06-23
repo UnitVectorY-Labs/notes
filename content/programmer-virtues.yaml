@@ -1,0 +1,21 @@
+slug: programmer-virtues
+title: Practice Programmer Virtues
+thesis: Virtuous laziness optimizes for total future effort, not immediate personal effort. Reduce the system, anticipate the pain, and own the work you leave behind.
+quote: "There are three great virtues of a programmer; Laziness, Impatience and Hubris - Larry Wall"
+bullets:
+  - Laziness means reducing the total work a system creates, often by deleting, simplifying, documenting, or automating what should not be repeated.
+  - Impatience means noticing slow or clumsy systems and improving them before everyone adapts to the pain.
+  - Hubris means believing the system can be better, and taking responsibility for the design, code, docs, generated output, and maintenance burden you leave behind.
+  - Be suspicious of output as a metric. More code is often more future work.
+  - "Balance ambition with community virtues: diligence, patience, and humility."
+  - The goal is not to avoid effort. The goal is to make the system smaller, clearer, and easier to operate.
+example: "Do not rebuild the same project setup by hand every time. Capture the pattern in a template, script, or shared stack so future projects start from a clearer path instead of repeating the same decisions."
+links:
+  - label: "Perl Glossary: Laziness"
+    url: "https://perldoc.perl.org/perlglossary#laziness"
+  - label: "Perl Glossary: Impatience"
+    url: "https://perldoc.perl.org/perlglossary#impatience"
+  - label: "Perl Glossary: Hubris"
+    url: "https://perldoc.perl.org/perlglossary#hubris"
+tags: ["engineering", "automation", "maintainability"]
+theme: green
