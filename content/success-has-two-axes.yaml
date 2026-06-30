@@ -1,0 +1,17 @@
+slug: success-has-two-axes
+title: Success Has Two Axes
+thesis: Success and failure are not one-dimensional. You must judge both whether the objective is correct and whether the execution is working. Trying harder only helps when you are pointed in the right direction.
+quote: "Efficiency is doing things right, while effectiveness is doing the right things"
+bullets:
+  - True Success is doing the right thing well. The objective is correct and the execution turns it into value.
+  - Efficient Waste is doing the wrong thing well. This is the most dangerous quadrant because progress, quality, and momentum can disguise the fact that the work should not be done.
+  - Failed Execution is doing the right thing poorly. The strategy may be sound, but poor execution prevents the value from materializing.
+  - Complete Failure is doing the wrong thing poorly. Both the direction and execution are broken, but the failure may be easier to recognize because nothing appears to be working.
+  - Do not respond to every failure by trying harder. First ask whether the task, goal, or strategy is correct.
+  - Do not trust every success. First ask whether success on the current path actually moves you toward the outcome that matters.
+example: "A team can ship a polished feature on time, with clean code, strong adoption, and efficient delivery, and still fail if the feature advances the wrong strategy or solves a problem that does not matter."
+links:
+  - label: "Efficiency and effectiveness"
+    url: "https://en.wikipedia.org/wiki/Efficiency#Efficiency_and_effectiveness"
+tags: ["strategy", "execution", "product", "systems"]
+theme: amber
