@@ -1,0 +1,16 @@
+slug: strong-opinions-weakly-held
+title: Strong Opinions, Weakly Held
+thesis: Form a clear position from the best evidence available, act on it, and revise it when better evidence arrives. Commit to learning as firmly as you commit to a decision.
+bullets:
+  - Make a specific recommendation and explain the reasoning behind it. A clear position gives people something to test and challenge.
+  - State the assumptions behind your opinion and what evidence would change your mind before you become invested in defending it.
+  - Actively seek evidence that could prove you wrong. Invite disagreement and give alternatives a fair hearing.
+  - Match your confidence to the evidence. Being decisive does not require pretending to be certain.
+  - Change your position when evidence undermines it or the underlying constraints change. Explain what you learned so others can follow the reasoning.
+  - Give decisions enough time to produce useful evidence. Reconsidering every time someone disagrees creates churn instead of learning.
+example: "A team recommends a queue because it expects background processing to reduce request latency. Before committing, it agrees to test that assumption under realistic load. The test shows that database contention dominates latency and the queue adds little benefit, so the team drops the queue proposal and focuses on the database."
+links:
+  - label: "Strong Opinions, Weakly Held — Bob Sutton"
+    url: "https://www.bobsutton.org/2006/07/strong_opinions/"
+tags: ["decision-making", "learning", "strategy", "engineering"]
+theme: blue
