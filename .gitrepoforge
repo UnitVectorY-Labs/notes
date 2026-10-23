@@ -1,6 +1,7 @@
 name: notes
 default_branch: main
 config:
+  osv: sarif
   description: "Curated set of notes from @UnitVectorY-Labs."
   license: MIT
   language: go
