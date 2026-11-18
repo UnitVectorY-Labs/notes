@@ -36,8 +36,9 @@ type Note struct {
 	Title    string   `yaml:"title"`
 	Thesis   string   `yaml:"thesis"`
 	Quote    string   `yaml:"quote"`
-	Bullets  []string `yaml:"bullets"`
-	Example  string   `yaml:"example"`
+	Bullets        []string `yaml:"bullets"`
+	BulletsNumbered bool     `yaml:"bullets_numbered"`
+	Example        string   `yaml:"example"`
 	Diagram  string   `yaml:"diagram"`
 	Links    []Link   `yaml:"links"`
 	Tags     []string `yaml:"tags"`
