@@ -2,6 +2,7 @@ slug: improve-in-the-right-order
 title: Improve in the Right Order
 thesis: Most teams improve systems backwards. Question the requirements, delete what should not exist, then simplify, accelerate, and automate only what remains.
 quote: "First, make your requirements less dumb. Your requirements are definitely dumb. It’s particularly dangerous if a smart person gave you the requirements because you might not question them enough. - Elon Musk"
+bullets_numbered: true
 bullets:
   - Make the requirements less dumb. Requirements are assumptions, not truth.
   - Delete the part or process before improving it. The best part is no part, and the best process is no process.
